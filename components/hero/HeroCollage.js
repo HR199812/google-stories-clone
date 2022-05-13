@@ -1,6 +1,7 @@
 const HeroCollage = () =>{
     return(
     <>
+    <div></div>
     </>
     )
 }

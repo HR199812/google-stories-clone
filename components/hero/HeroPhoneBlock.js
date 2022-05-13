@@ -2,6 +2,7 @@ const HeroPhoneBlock
  = () =>{
     return(
     <>
+    <div></div>
     </>
     )
 }
