@@ -119,6 +119,8 @@
   font-weight: 400;
   line-height: 1.4;
 }
+
+/* CSS for Footer */
 .heroContainer .heroFooter {
   margin-top: 100px;
   height: 95vh;
@@ -129,4 +131,50 @@
   color: #fff;
   font-size: 3rem;
   font-weight: 600;
+}
+
+/* CSS for Feature Sliders */
+.featureSlidesContainer {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+}
+.featureSlidesContainer .featureSlide {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 60%;
+	margin: 0 auto;
+}
+.featureSlidesContainer .featureSlide .featureSlideTitle {
+	font-size: 6vw;
+	text-transform: uppercase;
+	font-weight: 900;
+	font-family: "Fugaz One", cursive;
+}
+.featureSlidesContainer .featureSlide .featureSlideDescription {
+	font-size: 1.5rem;
+	margin-top: 30px;
+	line-height: 1.3;
+}
+.featureSlidesContainer .featureSlidesRight {
+	height: 100vh;
+	overflow: hidden;
+	position: relative;
+}
+.featureSlidesContainer .featureSlidesRight img {
+	width: 100%;
+	height: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	opacity: 0;
+	transition: all 1s ease-in-out;
+	transform: scale(1.3);
+	position: absolute;
+	top: 0;
+}
+.featureSlidesContainer .featureSlidesRight img.as-primary {
+	opacity: 1;
+	transform: scale(1.1);
 }
