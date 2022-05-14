@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 const HeroHeader = () => {
   const list = {
-    visible: { opacity: 1, transition: { delay: 0.3 } },
+    visible: { opacity: 1, transition: { delay: 0.5, duration:0.5 } },
     hidden: { opacity: 0 },
   };
 
