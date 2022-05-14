@@ -1,4 +1,8 @@
+import { useRef } from "react";
+
 const HeroFooter = () => {
+  const phoneRef = useRef(null);
+
   return (
     <>
       <div ref={phoneRef} className="hero-text-section">
