@@ -6,7 +6,7 @@ const HeroMidDiv = () => {
 
   return (
     <>
-      <div ref={phoneRef} className={style.heroTextSection}>
+      <div ref={phoneRef} className={style.heroTextSection} id="heroMidDiv">
         <h1>Visual stories that feel like yours, because they are.</h1>
       </div>
     </>

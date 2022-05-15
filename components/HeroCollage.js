@@ -41,6 +41,7 @@ function VideoElement({ src, loc }) {
           type: "spring",
           stiffness: 70,
         }}
+        id="heroCollageDiv"
       >
         <video
           className={style.collageElement}

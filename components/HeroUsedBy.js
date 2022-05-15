@@ -2,7 +2,7 @@ import style from "../styles/Home.module.css";
 const HeroUsedBy = () =>{
     return(
     <>
-    <div className={style.heroUsedBy}>
+    <div className={style.heroUsedBy} id="usedByDiv">
       <div className={style.heroUsedByCopy}>
         <p>
           The tappable story format has never been more accessible—to creators
