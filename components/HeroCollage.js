@@ -20,7 +20,7 @@ function VideoElement({ src, loc }) {
       >
         <video
           className={style.collageElement}
-          playsinline=""
+          playsInline=""
           autoPlay
           webkit-playsinline=""
           loop
@@ -45,7 +45,7 @@ function VideoElement({ src, loc }) {
       >
         <video
           className={style.collageElement}
-          playsinline=""
+          playsInline=""
           autoPlay
           webkit-playsinline=""
           loop

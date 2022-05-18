@@ -11,10 +11,10 @@ const HeroPhoneBlock = () => {
   const phoneRef = useRef(null);
   const phoneTemplateRef = useRef(null);
 
-  const [scrollPosition, setScrollPosition] = useState(0);
+  // const [scrollPosition, setScrollPosition] = useState(0);
 
   const handleScroll = () => {
-    const position = window.scrollY;
+    // const position = window.scrollY;
 
     if (
       phoneTemplateRef.current.getBoundingClientRect().top < 1 &&
@@ -106,7 +106,7 @@ const HeroPhoneBlock = () => {
     } else {
       document.getElementById("FeatureImage").style.position = "absolute";
     }
-    setScrollPosition(position);
+    // setScrollPosition(position);
   };
 
   useEffect(() => {
@@ -132,7 +132,7 @@ const HeroPhoneBlock = () => {
       >
         <video
           className={style.collageElement}
-          playsinline=""
+          playsInline=""
           autoPlay
           webkit-playsinline=""
           loop
