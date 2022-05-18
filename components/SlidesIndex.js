@@ -14,14 +14,12 @@ export default function SlidesIndex() {
     >
       <div className={style.featureSlidesLeft}>
         {featureSlides.map((feature, index) => (
-          <>
-            <div className={style.featureSlide} id={feature.title}>
-              <h3 className={style.featureSlideTitle}>{feature.title}</h3>
-              <p className={style.featureSlideDescription}>
-                {feature.description}
-              </p>
-            </div>
-          </>
+          <div key={index} className={style.featureSlide} id={feature.title}>
+            <h3 className={style.featureSlideTitle}>{feature.title}</h3>
+            <p className={style.featureSlideDescription}>
+              {feature.description}
+            </p>
+          </div>
         ))}
       </div>
       <motion.div

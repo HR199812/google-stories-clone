@@ -8,6 +8,8 @@ const videoUrl =
 const HeroPhoneBlock = () => {
   const scrollColorTransition = useRef(0);
   const scrollScaleTransition = useRef(1.5);
+  const phoneRef = useRef(null);
+  const phoneTemplateRef = useRef(null);
 
   const [scrollPosition, setScrollPosition] = useState(0);
 
@@ -15,12 +17,11 @@ const HeroPhoneBlock = () => {
     const position = window.scrollY;
 
     if (
-      document.getElementById("heroPhoneTemplateDiv").getBoundingClientRect()
-        .top < 1 &&
+      phoneTemplateRef.current.getBoundingClientRect().top < 1 &&
       document.getElementById("heroText").getBoundingClientRect().bottom < 1
     ) {
-      document.getElementById("heroPhoneDiv").style.position = "fixed";
-      document.getElementById("heroPhoneDiv").style.marginTop = "200px";
+      phoneRef.current.style.position = "fixed";
+      phoneRef.current.style.marginTop = "200px";
 
       if (
         document.getElementById("heroCollageDiv").getBoundingClientRect().top <
@@ -45,13 +46,10 @@ const HeroPhoneBlock = () => {
       if (
         document.getElementById("heroMidDiv").getBoundingClientRect().top < 750
       ) {
-        document.getElementById("heroPhoneDiv").style.position = "absolute";
-        document.getElementById("heroPhoneDiv").style.marginTop = "0";
+        phoneRef.current.style.position = "absolute";
+        phoneRef.current.style.marginTop = "0";
       }
-      if (
-        document.getElementById("heroPhoneTemplateDiv").getBoundingClientRect()
-          .top > 1
-      ) {
+      if (phoneTemplateRef.current.getBoundingClientRect().top > 1) {
         document.body.style.backgroundColor = "white";
         document.body.style.transition = "0.5s linear";
       }
@@ -62,8 +60,8 @@ const HeroPhoneBlock = () => {
         document.body.style.transition = "0.5s linear";
       }
     } else {
-      document.getElementById("heroPhoneDiv").style.position = "absolute";
-      document.getElementById("heroPhoneDiv").style.marginTop = "0";
+      phoneRef.current.style.position = "absolute";
+      phoneRef.current.style.marginTop = "0";
       document.body.style.background = "rgba(0,0,0,0)";
       document.body.style.transition = "1s ease-in";
     }
@@ -125,10 +123,13 @@ const HeroPhoneBlock = () => {
       initial={{ y: 300 }}
       animate={{ y: -47 }}
       transition={{ delay: 0.8, type: "spring", stiffness: 40 }}
-      // ref={phoneRef}
-      id="heroPhoneDiv"
+      ref={phoneRef}
     >
-      <div className={style.heroPhoneTemplate} id="heroPhoneTemplateDiv">
+      <div
+        className={style.heroPhoneTemplate}
+        ref={phoneTemplateRef}
+        id="heroPhoneTemplateDiv"
+      >
         <video
           className={style.collageElement}
           playsinline=""
