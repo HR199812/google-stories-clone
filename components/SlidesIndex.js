@@ -1,10 +1,59 @@
-import React, { useState, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { featureSlides } from "../data";
 import style from "../styles/Home.module.css";
 import { motion } from "framer-motion";
 
 export default function SlidesIndex() {
   const featureSliderRef = useRef(null);
+  const slideRef = useRef(null);
+  const handleScroll = () => {
+    if (
+      featureSliderRef.current.getBoundingClientRect().top < 1 
+      // &&
+      // document.getElementById("heroMidDiv").getBoundingClientRect().bottom < 1
+    ) {
+      slideRef.current.style.position = "fixed";
+      // slideRef.current.className = style.asPrimary;
+      console.log(slideRef.current.id);
+
+      // if (
+      //   document.getElementById("Complete control").getBoundingClientRect()
+      //     .top < 10
+      // ) {
+      //   slideRef.current.className = style.asPrimary;
+
+      //   slideRef.current.style.transition = "0.1s ease-in";
+      // }
+      // if (
+      //   document.getElementById("On Brand").getBoundingClientRect().top < 10
+      // ) {
+      //   slideRef.current.className = style.asPrimary;
+
+      //   slideRef.current.style.transition = "0.1s ease-in";
+      // }
+      // if (
+      //   document.getElementById("Immersive").getBoundingClientRect().top < 10
+      // ) {
+      //   slideRef.current.className = style.asPrimary;
+
+      //   slideRef.current.style.transition = "0.1s ease-in";
+      // }
+      // if (document.getElementById("footer").getBoundingClientRect().top < 790) {
+      //   slideRef.current.style.position = "absolute";
+      //   slideRef.current.style.bottom = 0;
+      // }
+    } else {
+      slideRef.current.style.position = "absolute";
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <div
@@ -12,28 +61,32 @@ export default function SlidesIndex() {
       className={style.featureSlidesContainer}
       id="featureSlidesContainer"
     >
-      <div className={style.featureSlidesLeft}>
-        {featureSlides.map((feature, index) => (
-          <div key={index} className={style.featureSlide} id={feature.title}>
-            <h3 className={style.featureSlideTitle}>{feature.title}</h3>
-            <p className={style.featureSlideDescription}>
-              {feature.description}
-            </p>
+      {featureSlides.map((feature, index) => (
+        <>
+          <div className={style.featureSlidesLeft}>
+            <div key={index} className={style.featureSlide} id={feature.title}>
+              <h3 className={style.featureSlideTitle}>{feature.title}</h3>
+              <p className={style.featureSlideDescription}>
+                {feature.description}
+              </p>
+            </div>
           </div>
-        ))}
-      </div>
-      <motion.div
-        className={style.featureSlidesRight}
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-      >
-        <img
-          className={style.asPrimary}
-          id="FeatureImage"
-          src="https://images.unsplash.com/photo-1615617396130-db493d04e2c5?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=934&q=100"
-        />
-      </motion.div>
+          <motion.div
+            className={style.featureSlidesRight}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            key={index}
+          >
+            <img
+              // className={style.asPrimary}
+              id={feature.title}
+              src={feature.imageUrl}
+              ref={slideRef}
+            />
+          </motion.div>
+        </>
+      ))}
     </div>
   );
 }

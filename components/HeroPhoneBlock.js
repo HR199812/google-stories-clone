@@ -11,11 +11,7 @@ const HeroPhoneBlock = () => {
   const phoneRef = useRef(null);
   const phoneTemplateRef = useRef(null);
 
-  // const [scrollPosition, setScrollPosition] = useState(0);
-
   const handleScroll = () => {
-    // const position = window.scrollY;
-
     if (
       phoneTemplateRef.current.getBoundingClientRect().top < 1 &&
       document.getElementById("heroText").getBoundingClientRect().bottom < 1
@@ -65,48 +61,6 @@ const HeroPhoneBlock = () => {
       document.body.style.background = "rgba(0,0,0,0)";
       document.body.style.transition = "1s ease-in";
     }
-    if (
-      document.getElementById("featureSlidesContainer").getBoundingClientRect()
-        .top < 1 &&
-      document.getElementById("heroMidDiv").getBoundingClientRect().bottom < 1
-    ) {
-      document.getElementById("FeatureImage").style.position = "fixed";
-
-      if (
-        document.getElementById("Complete control").getBoundingClientRect()
-          .top < 10
-      ) {
-        document.getElementById("FeatureImage").src =
-          "https://images.unsplash.com/photo-1615617396130-db493d04e2c5?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=934&q=100";
-        document.getElementById("FeatureImage").style.transition =
-          "0.1s ease-in";
-      }
-      if (
-        document.getElementById("On Brand").getBoundingClientRect().top < 10
-      ) {
-        document.getElementById("FeatureImage").src =
-          "https://images.unsplash.com/photo-1561532089-cb18d10f86b4?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=934&q=100";
-
-        document.getElementById("FeatureImage").style.transition =
-          "0.1s ease-in";
-      }
-      if (
-        document.getElementById("Immersive").getBoundingClientRect().top < 10
-      ) {
-        document.getElementById("FeatureImage").src =
-          "https://images.unsplash.com/photo-1548366565-6bbab241282d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=934&q=100";
-
-        document.getElementById("FeatureImage").style.transition =
-          "0.1s ease-in";
-      }
-      if (document.getElementById("footer").getBoundingClientRect().top < 790) {
-        document.getElementById("FeatureImage").style.position = "absolute";
-        document.getElementById("FeatureImage").style.bottom = 0;
-      }
-    } else {
-      document.getElementById("FeatureImage").style.position = "absolute";
-    }
-    // setScrollPosition(position);
   };
 
   useEffect(() => {
