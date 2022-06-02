@@ -76,7 +76,7 @@ export default function SlidesIndex() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            key={index}
+            key={index} 
           >
             <img
               // className={style.asPrimary}
